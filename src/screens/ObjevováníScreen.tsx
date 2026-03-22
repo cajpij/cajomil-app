@@ -60,7 +60,7 @@ function SwipeCard({ tea, onSwipe }: { tea: typeof TEAS[0]; onSwipe: (dir: 'left
   )
 }
 
-export default function ObjevováníScreen({ onBack }: { onBack: () => void }) {
+export default function ObjevováníScreen({ onBack: _onBack }: { onBack: () => void }) {
   const [activeFilter, setActiveFilter] = useState(1)
   const [index, setIndex] = useState(0)
   const [history, setHistory] = useState<string[]>([])
