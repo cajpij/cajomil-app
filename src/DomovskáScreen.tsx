@@ -28,10 +28,16 @@ export default function DomovskáScreen({
   onDetail,
   onRequest,
   onObjevuj,
+  onProfile,
+  onNotifications,
+  onAdmin,
 }: {
   onDetail?: () => void
   onRequest?: () => void
   onObjevuj?: () => void
+  onProfile?: () => void
+  onNotifications?: () => void
+  onAdmin?: () => void
 }) {
   const [activeTab, setActiveTab] = useState(0)
   const [bellShaking, setBellShaking] = useState(false)
@@ -41,13 +47,17 @@ export default function DomovskáScreen({
 
   const shakeBell = () => {
     setBellShaking(true)
-    setTimeout(() => setBellShaking(false), 600)
+    setTimeout(() => {
+      setBellShaking(false)
+      onNotifications?.()
+    }, 600)
   }
 
   const handleTabClick = (i: number) => {
     setActiveTab(i)
     if (i === 1) onObjevuj?.()
     if (i === 2) onRequest?.()
+    if (i === 3) onProfile?.()
   }
 
   return (
@@ -82,6 +92,14 @@ export default function DomovskáScreen({
             >
               🔔
             </motion.button>
+            <motion.button
+              onClick={onAdmin}
+              whileTap={{ scale: 0.85 }}
+              title="Správce"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 22, padding: 6 }}
+            >
+              🫖
+            </motion.button>
             <motion.div
               whileHover={{ scale: 1.08, rotate: 3 }}
               whileTap={{ scale: 0.88, rotate: -8 }}
@@ -110,7 +128,7 @@ export default function DomovskáScreen({
         >
           <motion.div style={{ y: heroY }}>
             <img
-              src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&q=80"
+              src="/cajomil-app/tea-home.png"
               alt="Sencha Hibiki"
               style={{ width: '100%', height: 240, objectFit: 'cover', display: 'block' }}
             />

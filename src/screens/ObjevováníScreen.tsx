@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, animate, AnimatePresence } from '
 import { useState } from 'react'
 
 const TEAS = [
-  { name: 'Dong Pian Oolong', sub: 'Zimní oolong · Tchajwan · Cui Yu kultivar · aromatický', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80', color: '#D89575' },
+  { name: 'Dong Pian Oolong', sub: 'Zimní oolong · Tchajwan · Cui Yu kultivar · aromatický', img: '/cajomil-app/tea-discover.png', color: '#D89575' },
   { name: 'Kabuse Kasumi', sub: 'Stíněný zelený čaj · Japonsko · umami', img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80', color: '#3D8A5A' },
   { name: 'Sencha Hibiki', sub: 'Japonský zelený · Miyazaki · svěží a trávnatý', img: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&q=80', color: '#5A9E72' },
   { name: 'Bílý Peony', sub: 'Bílý čaj · Fujian, Čína · jemný a květinový', img: 'https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=700&q=80', color: '#C8A97A' },

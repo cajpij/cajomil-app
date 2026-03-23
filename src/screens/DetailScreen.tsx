@@ -30,7 +30,7 @@ export default function DetailScreen({ onBack, onRequest }: { onBack: () => void
         style={{ position: 'relative', height: 280, flexShrink: 0 }}
       >
         <img
-          src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80"
+          src="/cajomil-app/tea-detail.png"
           alt="Sencha Hibiki"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
