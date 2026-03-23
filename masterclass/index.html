@@ -513,7 +513,7 @@
     <div class="problem-card">
       <div class="icon">😤</div>
       <h3>Problém: správce</h3>
-      <p>Ruční objednávání na teamountain.cz každé 2 měsíce. Nevidím spotřebu. Komunikace s čajomily roztříštěná přes Slack, email, osobně.</p>
+      <p>Ruční objednávání na cajovy-eshop.cz každé 2 měsíce. Nevidím spotřebu. Komunikace s čajomily roztříštěná přes Slack, email, osobně.</p>
     </div>
     <div class="problem-card">
       <div class="icon">😕</div>
@@ -523,7 +523,7 @@
     <div class="problem-card solution-card">
       <div class="icon">🫖</div>
       <h3>Řešení: Admin systém</h3>
-      <p>Dashboard spotřeby, objednávkový agent s AI návrhem, čajový katalog z automatického scraperu teamountain.cz.</p>
+      <p>Dashboard spotřeby, objednávkový agent s AI návrhem, čajový katalog z automatického scraperu cajovy-eshop.cz.</p>
     </div>
     <div class="problem-card solution-card">
       <div class="icon">🍵</div>
@@ -554,7 +554,7 @@
       </div>
 
       <div class="quote-card">
-        <blockquote>Každé dva měsíce sedím hodinu na teamountain.cz a ručně skládám objednávku. Přitom vůbec nevím, co se skutečně pije a co jen leží.</blockquote>
+        <blockquote>Každé dva měsíce sedím hodinu na cajovy-eshop.cz a ručně skládám objednávku. Přitom vůbec nevím, co se skutečně pije a co jen leží.</blockquote>
         <div class="quote-meta">
           <div class="quote-avatar" style="background:linear-gradient(135deg,#1A1918,#3D8A5A);">🧑</div>
           <div>
@@ -584,7 +584,7 @@
       </div>
 
       <div class="quote-card">
-        <blockquote>Když teamountain nemá čaj skladem, strávím další hodinu hledáním alternativy. A ještě musím napsat bannery a navody — to je na celý den.</blockquote>
+        <blockquote>Když dodavatel nemá čaj skladem, strávím další hodinu hledáním alternativy. A ještě musím napsat bannery a navody — to je na celý den.</blockquote>
         <div class="quote-meta">
           <div class="quote-avatar" style="background:linear-gradient(135deg,#1A1918,#3D8A5A);">🧑</div>
           <div>
@@ -1444,7 +1444,7 @@ PRAVIDLA PRO KAZDE ROZHRANI:
 <section id="agent">
   <div class="section-tag">Scraper Agent</div>
   <h2>Jak funguje <span>nakupní agent</span></h2>
-  <p class="section-sub">Playwright scraper automaticky projde teamountain.cz, extrahuje strukturovaná data o každém čaji a uloží je do Supabase databáze.</p>
+  <p class="section-sub">Playwright scraper automaticky projde cajovy-eshop.cz, extrahuje strukturovaná data o každém čaji a uloží je do Supabase databáze.</p>
 
   <div class="agent-layout">
 
@@ -1456,7 +1456,7 @@ PRAVIDLA PRO KAZDE ROZHRANI:
         <div class="flow-step">
           <div class="flow-step-icon" style="background:rgba(61,138,90,0.12);">🌐</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">1. Playwright otevře teamountain.cz/caje</div>
+            <div class="flow-step-title">1. Playwright otevře cajovy-eshop.cz/caje</div>
             <div class="flow-step-desc">Headless Chromium prochází stránkování katalogu, sbírá URL každého produktu. Deduplikace, respektování robots.txt.</div>
           </div>
         </div>
@@ -1513,7 +1513,7 @@ PRAVIDLA PRO KAZDE ROZHRANI:
       <div class="scraper-code">
         <div class="scraper-code-bar">
           <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
-          <span class="fname">lib/suppliers/teamountain.ts</span>
+          <span class="fname">lib/suppliers/cajovy-eshop.ts</span>
         </div>
         <pre><span class="c-comment">// Pro každou URL produktu:</span>
 <span class="c-key">const</span> tea = <span class="c-fn">await</span> <span class="c-fn">scrapeProductPage</span>(page, url)
@@ -1535,7 +1535,7 @@ PRAVIDLA PRO KAZDE ROZHRANI:
       <!-- CLI invocation -->
       <div style="background:#0E0E0D;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;font-family:monospace;font-size:12px;color:rgba(255,255,255,0.5);">
         <span style="color:#28C840">$</span> <span style="color:rgba(255,255,255,0.8)">npx tsx scripts/scrape.ts --dry-run --limit 5</span><br>
-        <span style="color:rgba(255,255,255,0.3)">🍵 Cajovna scraper — teamountain.cz</span><br>
+        <span style="color:rgba(255,255,255,0.3)">🍵 Cajovna scraper — cajovy-eshop.cz</span><br>
         <span style="color:rgba(255,255,255,0.3)">Mode: DRY RUN (neukládá)</span><br>
         <span style="color:rgba(255,255,255,0.3)">──────────────────────────────────────────────────</span><br>
         <span style="color:rgba(255,255,255,0.5)">[1/5] Scraping: /sencha-hibiki</span><br>
