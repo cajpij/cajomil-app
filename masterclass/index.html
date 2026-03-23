@@ -1200,24 +1200,12 @@ PRAVIDLA PRO KAZDE ROZHRANI:
       </div>
       <!-- QR code -->
       <div style="background:#fff;border-radius:16px;padding:14px;margin-top:4px;display:flex;flex-direction:column;align-items:center;gap:8px;">
-        <div id="qr-canvas"></div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAIAAAAG+WgKAAAEEUlEQVR4nO3dW2olNxRA0XTIJDqZ/9A6PQxnAAVBiH2kumatb9+H7Y3gUFXSj6+vrz+g8+ftL8B3IylikiImKWKSIiYpYpIiJilikiImKWKSIvbXyg/98/fP6e/xP379+3vjVXe/856V3/T9/wurFDFJEZMUMUkRkxSxpYnvaW8KW1FNNG+bnub+Ym/7X1iliEmKmKSISYqYpIhtTnxPe9PB3LRSffrz93q+au93X3nVyeub1f/CKkVMUsQkRUxSxCRFLJv43mZlUtt71d6ktvd9PpFVipikiEmKmKSISYrYN5n45u4Fnbt+t/KqT5wKrVLEJEVMUsQkRUxSxLKJ7+RsUk1GK++zd7VuZeKbe4rw7pxolSImKWKSIiYpYpIitjnxvX8nzJNT4dzP7H3Du6xSxCRFTFLEJEVMUsR+fI8T2Ofmqep99j7rE1mliEmKmKSISYqYpIhtnsf3/l1QTv7MipN/Q3d18q1IipikiEmKmKSILV3je9vcMXf6wNxctuJ7/F5WKWKSIiYpYpIiJili2V2dJ+91rOaXue+z96q75wM+7c2tVilikiImKWKSIiYpYoN3dc5dRTr5jN775829n5mb0K1SxCRFTFLEJEVMUsQ2r/GdvF42t+/l3acRV9ydZFfe+ckqRUxSxCRFTFLEJEVs8AT2vRnn5D2Kd9957qm9vVdVz11apYhJipikiEmKmKSILV3je9vcMXf6wNxctuJ7/F5WKWKSIiYpYpIiJili2V2dJ+91rOaXue+z96q75wM+7c2tVilikiImKWKSIiYpYoN3dc5dRTr5jN775829n5mb0K1SxCRFTFLEJEVMUsQ2r/GdvF42t+/l3acRV9ydZFfe+ckqRUxSxCRFTFLEJEVs8AT2vRnn5D2Kd9957qm9vVdVz11apYhJipikiEmKmKSILV3je9vcMXf6wNxctuJ7/F5WKWKSIiYpYpIiJili2V2dJ+91rOaXue+z96q75wM+7c2tVilikiImKWKSIiYpYoN3dc5dRTr5jN775829n5mb0K1SxCRFTFLEJEVMUsQ2r/GdvF42t+/l3acRV9ydZFfe+ckqRUxSxCRFTFLEJEVs8AT2vRnn5D2Kd9957qm9vVdVz11apYhJipikiEmKmKSILV3je9vcMXf6wNxctuJ7/F5WKWKSIiYpYpIiJili2V2dJ+91rOaXue+z96q75wM+7c2tVilikiImKWKSIiYpYoN3dc5dRTr5jN775829n5mb0K1SxCRFTFLEJEVMUsQ2r/GdvF42t+/l3acRV9ydZFfe+ckqRUxSxCRFTFLEJEVs8AT2vRnn5D2Kd9957qm9vVdVz11apYhJipikiEmKmKSILV3je9vcMXf6wNxctuJ7/F5WKWKSIiYpYpIiJili2V2dJ+91rOaXue+z96q75wM+7c2tVilikiImKWKSIiYpYoN3dc5dRTr5jN775829n5mb0K1SxCRFTFLEJEVMUsRex1Dg+Xb2fCPcAAAAASUVORK5CYII=" width="160" height="160" style="border-radius:8px;display:block;image-rendering:pixelated;">
         <div style="font-size:11px;color:#6D6C6A;text-align:center;font-family:monospace;">naskenuj a otevři v mobilu</div>
       </div>
     </div>
   </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-<script>
-  new QRCode(document.getElementById('qr-canvas'), {
-    text: 'https://cajpij.github.io/cajomil-app/',
-    width: 160,
-    height: 160,
-    colorDark: '#1A1918',
-    colorLight: '#ffffff',
-    correctLevel: QRCode.CorrectLevel.M
-  });
-</script>
 
 <!-- FOOTER -->
 <footer>
