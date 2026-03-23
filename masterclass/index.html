@@ -314,6 +314,81 @@
   /* ── DIVIDER ── */
   .full-divider { border: none; border-top: 1px solid var(--border-1); margin: 0; }
 
+  /* ── AGENT SHOWCASE ── */
+  .agent-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  @media(max-width:900px) { .agent-layout { grid-template-columns: 1fr; } }
+
+  .agent-flow {
+    display: flex; flex-direction: column; gap: 4px; margin-bottom: 32px;
+  }
+  .flow-step {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 20px; background: var(--surface-1); border-radius: 14px;
+    border: 1px solid var(--border-1); position: relative;
+  }
+  .flow-step-icon {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+  }
+  .flow-step-body { flex: 1; min-width: 0; }
+  .flow-step-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .flow-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .flow-arrow {
+    text-align: center; color: var(--text-dim); font-size: 13px; line-height: 1;
+    padding: 2px 0;
+  }
+
+  .scraper-code {
+    background: #0E0E0D; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; overflow: hidden; margin-bottom: 24px;
+  }
+  .scraper-code-bar {
+    background: #1A1918; padding: 10px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .scraper-code-bar .dot-r { width:10px;height:10px;border-radius:50%;background:#FF5F57; }
+  .scraper-code-bar .dot-y { width:10px;height:10px;border-radius:50%;background:#FEBC2E; }
+  .scraper-code-bar .dot-g { width:10px;height:10px;border-radius:50%;background:#28C840; }
+  .scraper-code-bar .fname { font-size:12px;color:rgba(255,255,255,0.35);margin-left:8px;font-family:monospace; }
+  .scraper-code pre {
+    padding: 20px 22px; margin: 0; font-size: 12px; line-height: 1.7;
+    font-family: 'Fira Code', 'SF Mono', monospace; overflow-x: auto; color: rgba(255,255,255,0.75);
+  }
+  .scraper-code .c-comment { color: rgba(255,255,255,0.25); }
+  .scraper-code .c-key { color: #79B8FF; }
+  .scraper-code .c-str { color: #9ECBFF; }
+  .scraper-code .c-fn { color: #B392F0; }
+  .scraper-code .c-green { color: #85E89D; }
+  .scraper-code .c-orange { color: var(--coral); }
+
+  .data-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface-2); border: 1px solid var(--border-2);
+    padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
+    margin: 3px 3px 3px 0;
+  }
+  .data-chip .chip-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  .agent-screenshot-frame {
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border-3);
+    background: #1A1918;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  }
+  .agent-screenshot-frame img { width: 100%; display: block; }
+  .agent-screenshot-label {
+    padding: 12px 18px; background: #141413;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .agent-screenshot-label span { font-size: 12px; color: rgba(255,255,255,0.4); font-family: monospace; }
+  .agent-screenshot-label .live-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #28C840;
+    box-shadow: 0 0 6px #28C840; animation: pulse-green 2s infinite;
+  }
+  @keyframes pulse-green { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
   /* ── PERSONAS ── */
   .personas-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
   @media(max-width:860px) { .personas-layout { grid-template-columns: 1fr; } }
@@ -382,6 +457,7 @@
     <a href="#personas">Uživatelé</a>
     <a href="#workflow">Workflow</a>
     <a href="#screeny">Screeny</a>
+    <a href="#agent">Agent</a>
     <a href="#pact">PACT</a>
     <a href="#deploy">Deploy</a>
   </div>
@@ -1358,6 +1434,143 @@ PRAVIDLA PRO KAZDE ROZHRANI:
         </div>
         <div class="phone-screen-name">Admin login</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- AGENT SHOWCASE -->
+<section id="agent">
+  <div class="section-tag">Scraper Agent</div>
+  <h2>Jak funguje <span>nakupní agent</span></h2>
+  <p class="section-sub">Playwright scraper automaticky projde teamountain.cz, extrahuje strukturovaná data o každém čaji a uloží je do Supabase databáze.</p>
+
+  <div class="agent-layout">
+
+    <!-- LEFT: flow + code -->
+    <div>
+      <!-- Flow diagram -->
+      <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;">Jak to funguje</div>
+      <div class="agent-flow">
+        <div class="flow-step">
+          <div class="flow-step-icon" style="background:rgba(61,138,90,0.12);">🌐</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">1. Playwright otevře teamountain.cz/caje</div>
+            <div class="flow-step-desc">Headless Chromium prochází stránkování katalogu, sbírá URL každého produktu. Deduplikace, respektování robots.txt.</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-icon" style="background:rgba(216,149,117,0.12);">🔍</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">2. Parsování stránky každého čaje</div>
+            <div class="flow-step-desc">Extrahuje název, popis, ceny (50g/100g/200g), přípravu (teplota, čas, gramáž), původ, kultivár, sklizeň, obrázky.</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-icon" style="background:rgba(121,184,255,0.12);">🧠</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">3. Automatické rozpoznání účinků</div>
+            <div class="flow-step-desc">NLP přes klíčová slova detekuje účinky z textu: energie, klid, trávení, imunita, spánek, koncentrace, detox.</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-icon" style="background:rgba(40,200,64,0.1);">🗄️</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">4. Upsert do Supabase</div>
+            <div class="flow-step-desc">Nové čaje se vloží, existující aktualizují (cena, dostupnost). Každý běh zalogován do <code style="font-size:11px;background:var(--surface-code);padding:1px 6px;border-radius:4px;color:var(--green-light)">scrape_log</code>.</div>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-icon" style="background:rgba(179,146,240,0.12);">🤖</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">5. AI agent navrhne objednávku</div>
+            <div class="flow-step-desc">Claude čte spotřebu, požadavky čajomilů, stav skladu a doporučí co a kolik objednat — s odůvodněním a cenou.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data chips -->
+      <div style="margin-bottom:8px;font-size:12px;font-weight:700;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;">Co se extrahuje</div>
+      <div style="margin-bottom:32px;">
+        <span class="data-chip"><span class="chip-dot" style="background:#3D8A5A"></span>název + slug</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#3D8A5A"></span>ceny (50/100/200g)</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#5A9E72"></span>příprava</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#5A9E72"></span>teplota · čas · gramáž</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#D89575"></span>původ + region</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#D89575"></span>kultivár + sklizeň</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#8B7355"></span>kategorie</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#8B7355"></span>účinky (AI)</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#79B8FF"></span>obrázky</span>
+        <span class="data-chip"><span class="chip-dot" style="background:#79B8FF"></span>dostupnost</span>
+      </div>
+
+      <!-- Code snippet -->
+      <div class="scraper-code">
+        <div class="scraper-code-bar">
+          <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
+          <span class="fname">lib/suppliers/teamountain.ts</span>
+        </div>
+        <pre><span class="c-comment">// Pro každou URL produktu:</span>
+<span class="c-key">const</span> tea = <span class="c-fn">await</span> <span class="c-fn">scrapeProductPage</span>(page, url)
+
+<span class="c-comment">// Extrakce dat z WooCommerce stránky:</span>
+<span class="c-key">const</span> name    = <span class="c-fn">await</span> page.<span class="c-fn">$eval</span>(<span class="c-str">'h1.product_title'</span>, el => el.textContent)
+<span class="c-key">const</span> prices  = <span class="c-fn">await</span> <span class="c-fn">parsePrices</span>(page)        <span class="c-comment">// 50g/100g/200g + cena</span>
+<span class="c-key">const</span> prep    = <span class="c-fn">parsePreparation</span>(desc)       <span class="c-comment">// teplota, čas, gramáž</span>
+<span class="c-key">const</span> effects = <span class="c-fn">detectEffects</span>(desc)           <span class="c-comment">// NLP klíčová slova</span>
+
+<span class="c-comment">// Uložení do Supabase:</span>
+<span class="c-fn">await</span> supabase.from(<span class="c-str">'teas'</span>)
+  .<span class="c-fn">upsert</span>({ slug, name, ...tea }, { onConflict: <span class="c-str">'slug'</span> })
+
+<span class="c-green">// ✓ 47 čajů nalezeno, 12 nových, 35 aktualizováno</span>
+<span class="c-green">// ✓ Dokončeno za 2m 14s — uloženo do scrape_log</span></pre>
+      </div>
+
+      <!-- CLI invocation -->
+      <div style="background:#0E0E0D;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;font-family:monospace;font-size:12px;color:rgba(255,255,255,0.5);">
+        <span style="color:#28C840">$</span> <span style="color:rgba(255,255,255,0.8)">npx tsx scripts/scrape.ts --dry-run --limit 5</span><br>
+        <span style="color:rgba(255,255,255,0.3)">🍵 Cajovna scraper — teamountain.cz</span><br>
+        <span style="color:rgba(255,255,255,0.3)">Mode: DRY RUN (neukládá)</span><br>
+        <span style="color:rgba(255,255,255,0.3)">──────────────────────────────────────────────────</span><br>
+        <span style="color:rgba(255,255,255,0.5)">[1/5] Scraping: /sencha-hibiki</span><br>
+        <span style="color:rgba(255,255,255,0.5)">[2/5] Scraping: /kabuse-kasumi</span><br>
+        <span style="color:#28C840">  ✓ 5 čajů zpracováno</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: screenshots -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+
+      <div class="agent-screenshot-frame">
+        <img src="assets/screen-agent.png" alt="Objednávkový agent" loading="lazy">
+        <div class="agent-screenshot-label">
+          <span>[B] Objednávkový agent — AI návrh objednávky</span>
+          <div class="live-dot"></div>
+        </div>
+      </div>
+
+      <div class="agent-screenshot-frame">
+        <img src="assets/screen-dashboard.png" alt="Admin dashboard" loading="lazy">
+        <div class="agent-screenshot-label">
+          <span>[A] Dashboard — stav skladu + fronta požadavků</span>
+          <div class="live-dot"></div>
+        </div>
+      </div>
+
+      <div class="agent-screenshot-frame">
+        <img src="assets/screen-katalog.png" alt="Čajový katalog" loading="lazy">
+        <div class="agent-screenshot-label">
+          <span>[C] Čajový katalog — data ze scraperu</span>
+          <div class="live-dot"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
